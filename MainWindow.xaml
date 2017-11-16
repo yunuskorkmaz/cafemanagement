@@ -1,0 +1,65 @@
+﻿<Window x:Class="cafeManagement.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialMenu="clr-namespace:MaterialMenu;assembly=MaterialMenu"
+        xmlns:local="clr-namespace:cafeManagement"
+        mc:Ignorable="d"
+        Title="Mono Craft Services Groupd" Height="1080" Width="1920" WindowState="Maximized" ResizeMode="CanMinimize" Loaded="Window_Loaded"
+    FontFamily="Calibri"
+        FontSize="16"
+        Foreground="Black">
+    <Grid Background="#d5d5d5">
+        <materialMenu:SideMenu HorizontalAlignment="Left" x:Name="Menu"
+                               MenuWidth="300"
+                               Theme="Default"
+                               ButtonBackground="Transparent"
+                               ButtonHover="DeepSkyBlue"
+                                 ShadowBackground="Transparent"  
+                               State="Hidden">
+            <materialMenu:SideMenu.Menu>
+                <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                    <StackPanel Orientation="Vertical">
+                        <Border Background="#337AB5">
+                            <Grid Margin="10">
+                                <TextBlock Height="150"  Background="Transparent"
+                                    VerticalAlignment="Bottom" HorizontalAlignment="Left" FontFamily="Calibri" FontSize="18"
+                                    Foreground="WhiteSmoke" FontWeight="Bold">Hoşgeldiniz...</TextBlock>
+                            </Grid>
+                        </Border>
+                        <materialMenu:MenuButton MouseDown="MenuButton_MouseDown" Tag="0" Text="Anasayfa"></materialMenu:MenuButton>
+                        <materialMenu:MenuButton MouseDown="MenuButton_MouseDown" Tag="1" Text="Sipariş"></materialMenu:MenuButton>
+                        <materialMenu:MenuButton MouseDown="MenuButton_MouseDown" Tag="2" Text="Masa Ayarları"></materialMenu:MenuButton>
+                        <materialMenu:MenuButton MouseDown="MenuButton_MouseDown" Tag="3" Text="Menü Ayarları"></materialMenu:MenuButton>
+                        <materialMenu:MenuButton MouseDown="MenuButton_MouseDown" Tag="4" Text="Stok İşlemleri"></materialMenu:MenuButton>
+                        <materialMenu:MenuButton MouseDown="MenuButton_MouseDown" Tag="5" Text="Gün Sonu İşlemleri"></materialMenu:MenuButton>
+                        <materialMenu:MenuButton MouseDown="MenuButton_MouseDown" Tag="6" Text="Ürün Satış Raporu"></materialMenu:MenuButton>
+                        <materialMenu:MenuButton MouseDown="MenuButton_MouseDown" Tag="7" Text="Adisyonlar ve Ödemeler"></materialMenu:MenuButton>
+                        <materialMenu:MenuButton MouseDown="MenuButton_MouseDown" Tag="8" Text="Stok Durum Raporu"></materialMenu:MenuButton>
+                        <materialMenu:MenuButton MouseDown="MenuButton_MouseDown" Tag="9" Text="Kullanıcılar"></materialMenu:MenuButton>
+                        <materialMenu:MenuButton MouseDown="MenuButton_MouseDown" Tag="10" Text="Yetkiler"></materialMenu:MenuButton>
+                    </StackPanel>
+                </ScrollViewer>
+            </materialMenu:SideMenu.Menu>
+        </materialMenu:SideMenu>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="90*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="Black">
+                <StackPanel Orientation="Horizontal">
+                    <Image Name="menubutton_image" Source="/ico/logoMono.png" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                       MouseDown="menubutton_image_MouseDown" Margin="15,0,0,0" Width="90" Height="90"></Image>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Name="logo" Source="/ico/logoMono.png" Width="90" Height="90"></Image>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <ContentControl x:Name="mainContent"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
