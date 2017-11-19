@@ -1,18 +1,11 @@
-﻿using System;
+﻿using DAL.Models;
+using Service;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Effects;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace cafeManagement.userControls
 {
@@ -21,11 +14,7 @@ namespace cafeManagement.userControls
     /// </summary>
     /// 
 
-    public class Masa
-    {
-        public string Adi { get; set; }
-        public int additionCount { get; set; }
-    }
+
 
     public partial class ordersUserControl : UserControl
     {
@@ -36,51 +25,13 @@ namespace cafeManagement.userControls
             InitializeComponent();
 
             popup1.Visibility = Visibility.Hidden;
-            List<Masa> liste = new List<Masa>()
-            {
-                new Masa(){Adi= "BÜLENT FIRAT",additionCount=123},
-                new Masa(){ Adi = "Masa 2",additionCount=45},
-                 new Masa(){Adi= "Masa 1",additionCount=55},
-                new Masa(){ Adi = "Masa 2",additionCount=45645678},
-                 new Masa(){Adi= "Masa 1",additionCount=5},
-                new Masa(){ Adi = "Masa 2",additionCount=2},
-                 new Masa(){Adi= "Masa 1",additionCount=2},
-                new Masa(){ Adi = "Masa 2",additionCount=5},
-                new Masa(){Adi= "Masa 1",additionCount=5},
-                new Masa(){ Adi = "Masa 2",additionCount=5},
-                 new Masa(){Adi= "Masa 1",additionCount=5},
-                new Masa(){ Adi = "Masa 2",additionCount=844916645},
-                 new Masa(){Adi= "Masa 1",additionCount=5},
-                new Masa(){ Adi = "Masa 2",additionCount=5},
-                 new Masa(){Adi= "Masa 1",additionCount=5},
-                new Masa(){ Adi = "Masa 2",additionCount=5},
-                 new Masa(){Adi= "Masa 1",additionCount=5},
-                new Masa(){ Adi = "Masa 2",additionCount=5},
-                 new Masa(){Adi= "Masa 1",additionCount=5},
-                new Masa(){ Adi = "Masa 2",additionCount=5},
-                 new Masa(){Adi= "Masa 1",additionCount=5},
-                new Masa(){ Adi = "Masa 2",additionCount=5},
-                 new Masa(){Adi= "Masa 1",additionCount=5},
-                new Masa(){ Adi = "Masa 2",additionCount=5},
-                 new Masa(){Adi= "Masa 1",additionCount=5},
-                new Masa(){ Adi = "Masa 2",additionCount=5},
-                 new Masa(){Adi= "Masa 1",additionCount=5},
-                new Masa(){ Adi = "Masa 2",additionCount=5},
-                 new Masa(){Adi= "TEST 1"},
-                new Masa(){ Adi = "Masa 2"},
-                 new Masa(){Adi= "Masa 1"},
-                new Masa(){ Adi = "Masa 2"},
-                 new Masa(){Adi= "Masa 1"},
-                new Masa(){ Adi = "Masa 2"}
 
-            };
+            
+            List<Masa> liste = MasaService.GetList() ;
 
             listemiz.ItemsSource = liste;
 
             listemiz.SelectionChanged += Listemiz_SelectionChanged;
-
-
-
         }
 
 
